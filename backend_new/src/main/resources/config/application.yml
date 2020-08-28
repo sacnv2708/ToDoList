@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+    include:
+      - swagger
+  datasource:
+    #    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306
+    username: root
+    password: 123456
+
+    hikari:
+      pool-name: Hikari
+      auto-commit: false
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    show-sql: true
+#    properties:
+#      hibernate.id.new_generator_mappings: true
+#        hibernate.connection.provider_disables_autocommit: true
+#        hibernate.cache.use_second_level_cache: false
+#        hibernate.cache.use_query_cache: false
+#        hibernate.generate_statistics: true
+
+
+logging:
+  level:
+    #    ROOT: DEBUG
+    com.nhom6.backend: DEBUG
+    org.hibernate.SQL: DEBUG
+  #    org.hibernate.type: DEBUG
+  pattern:
+    console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
+    file: "%d{yy-MM-dd E HH:mm:ss.SSS} %-5p ${PID} --- [%8.15t] %-40.40logger{0} :%m%n"
+  file:
+    max-history: 20
+
