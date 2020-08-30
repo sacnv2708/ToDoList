@@ -1,4 +1,6 @@
-import {NbMenuItem} from '@nebular/theme';
+import { NbMenuItem } from '@nebular/theme';
+import { title } from 'process';
+import { link } from 'fs';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
@@ -19,6 +21,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/dashboard',
       }
     ]
+  },
+  {
+    title: 'Quản lý tài liệu',
+    icon: 'archive-outline',
+    link: '',
+    children: [
+      {
+        title: 'Quản lý tác giả',
+        link: '/pages/author-management',
+      }
+    ]
+
   },
   {
     title: 'Layout',
